@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Blind Home Controller-->
@@ -43,19 +45,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM0-5C-rBb">
-                                <rect key="frame" x="223" y="173" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-gy-7Gl">
+                                <rect key="frame" x="304" y="104" width="291" height="30"/>
+                                <color key="backgroundColor" red="0.20346350270485686" green="0.68385962041884818" blue="0.12777356093366204" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <state key="normal" title="Recherche Vocale" image="ic_mic_white_18pt"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="xQt-k5-s6C">
+                                <rect key="frame" x="5" y="104" width="292" height="30"/>
+                                <color key="backgroundColor" red="0.20681962017456115" green="0.68385962041884818" blue="0.13475228376042858" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GwJ-hy-xMe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="Autour de moi" image="ic_my_location_white_18pt">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Destination" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGN-Qw-cM5">
+                                <rect key="frame" x="5" y="69" width="555" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="Destination"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pX3-MG-dD0">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Corsaire" id="zge-p3-v9x">
+                                        <barButtonItem key="leftBarButtonItem" image="logo" id="DAk-9q-3OP"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Vpu-NJ-76A">
+                                <rect key="frame" x="0.0" y="139" width="600" height="461"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov4-q4-Dp2">
+                                <rect key="frame" x="565" y="69" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.20346350270485686" green="0.68385962041884818" blue="0.12777356093366204" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4Ji-JL-trc"/>
+                                    <constraint firstAttribute="height" constant="30" id="M0M-5p-eg2"/>
+                                </constraints>
+                                <state key="normal" image="ic_search_white_18pt"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ov4-q4-Dp2" firstAttribute="leading" secondItem="SGN-Qw-cM5" secondAttribute="trailing" constant="5" id="1TB-9a-0I2"/>
+                            <constraint firstItem="Vpu-NJ-76A" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leadingMargin" constant="-20" id="3h2-bZ-YOU"/>
+                            <constraint firstItem="Vpu-NJ-76A" firstAttribute="top" secondItem="5bH-gy-7Gl" secondAttribute="bottom" constant="5" id="3wm-iq-GSG"/>
+                            <constraint firstItem="SGN-Qw-cM5" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leadingMargin" constant="-15" id="8d0-RJ-N49"/>
+                            <constraint firstItem="5bH-gy-7Gl" firstAttribute="leading" secondItem="xQt-k5-s6C" secondAttribute="trailing" constant="7" id="Avn-BB-chE"/>
+                            <constraint firstItem="5bH-gy-7Gl" firstAttribute="top" secondItem="ov4-q4-Dp2" secondAttribute="bottom" constant="5" id="LHT-Vw-5Nk"/>
+                            <constraint firstItem="Vpu-NJ-76A" firstAttribute="bottom" secondItem="XRw-ou-3xc" secondAttribute="top" id="OmS-cg-rwk"/>
+                            <constraint firstItem="ov4-q4-Dp2" firstAttribute="top" secondItem="SGN-Qw-cM5" secondAttribute="top" id="PTF-6e-1XG"/>
+                            <constraint firstItem="SGN-Qw-cM5" firstAttribute="top" secondItem="pX3-MG-dD0" secondAttribute="bottom" constant="5" id="Vhe-di-Yv0"/>
+                            <constraint firstItem="5bH-gy-7Gl" firstAttribute="width" secondItem="xQt-k5-s6C" secondAttribute="width" id="XR4-Wz-Ogv"/>
+                            <constraint firstItem="xQt-k5-s6C" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leadingMargin" constant="-15" id="bw8-K1-klA"/>
+                            <constraint firstItem="ov4-q4-Dp2" firstAttribute="top" secondItem="pX3-MG-dD0" secondAttribute="bottom" constant="5" id="ddO-r9-vLy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5bH-gy-7Gl" secondAttribute="trailing" constant="-15" id="gK5-FG-D3z"/>
+                            <constraint firstItem="pX3-MG-dD0" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leading" id="gsU-gk-bmn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ov4-q4-Dp2" secondAttribute="trailing" constant="-15" id="jLO-WK-TQQ"/>
+                            <constraint firstItem="5bH-gy-7Gl" firstAttribute="height" secondItem="xQt-k5-s6C" secondAttribute="height" id="onI-d1-2O3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vpu-NJ-76A" secondAttribute="trailing" constant="-20" id="pbG-7t-B5I"/>
+                            <constraint firstItem="5bH-gy-7Gl" firstAttribute="baseline" secondItem="xQt-k5-s6C" secondAttribute="baseline" id="r2e-43-Tbx"/>
+                            <constraint firstItem="pX3-MG-dD0" firstAttribute="top" secondItem="F2H-iJ-0QS" secondAttribute="top" constant="20" id="rd0-IN-qGV"/>
+                            <constraint firstAttribute="trailing" secondItem="pX3-MG-dD0" secondAttribute="trailing" id="zIQ-xD-jfV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Vpu-NJ-76A" id="xfZ-ae-KYI"/>
+                        <outlet property="view" destination="F2H-iJ-0QS" id="Pxb-gH-L8E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIW-Fr-jXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1028" y="-83"/>
+            <point key="canvasLocation" x="-1029" y="-84"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_mic_white_18pt" width="18" height="18"/>
+        <image name="ic_my_location_white_18pt" width="18" height="18"/>
+        <image name="ic_search_white_18pt" width="18" height="18"/>
+        <image name="logo" width="50" height="50"/>
+    </resources>
 </document>
