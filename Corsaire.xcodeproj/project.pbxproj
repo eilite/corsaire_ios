@@ -17,6 +17,9 @@
 		471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DEA1CE73F4C008FE86A /* BlindHomeController.swift */; };
 		471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DED1CE74046008FE86A /* ValidHomeController.swift */; };
 		471D6DF51CE74B24008FE86A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 471D6DF71CE74B24008FE86A /* Localizable.strings */; };
+		471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFB1CE7B85A008FE86A /* Extensions.swift */; };
+		471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */; };
+		471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6E011CE7C427008FE86A /* HttpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		471D6DF61CE74B24008FE86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		471D6DF81CE74B54008FE86A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		471D6DF91CE74B58008FE86A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		471D6DFB1CE7B85A008FE86A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryHelper.swift; sourceTree = "<group>"; };
+		471D6E011CE7C427008FE86A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		471D6DB21CE733A0008FE86A /* Corsaire */ = {
 			isa = PBXGroup;
 			children = (
+				471D6DFA1CE7B83A008FE86A /* Helpers */,
 				471D6DE81CE73EE1008FE86A /* Service */,
 				471D6DE71CE73ECD008FE86A /* Valid */,
 				471D6DE61CE73EC5008FE86A /* Blind */,
@@ -178,6 +185,16 @@
 				471D6DED1CE74046008FE86A /* ValidHomeController.swift */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		471D6DFA1CE7B83A008FE86A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				471D6DFB1CE7B85A008FE86A /* Extensions.swift */,
+				471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */,
+				471D6E011CE7C427008FE86A /* HttpRequest.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */,
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
 				471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */,
+				471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */,
 				471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */,
+				471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */,
 				471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
