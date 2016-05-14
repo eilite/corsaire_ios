@@ -13,6 +13,13 @@ class ValidHomeController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("app_name".localized)
     }
 
+}
+
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
 }

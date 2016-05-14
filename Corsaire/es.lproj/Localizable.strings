@@ -1,0 +1,62 @@
+/* 
+  localizable.strings
+  Corsaire
+
+  Created by Elie on 14/05/2016.
+  Copyright © 2016 Elie. All rights reserved.
+*/
+"app_name" = "Corsario GPS";
+"adresse_introuvable" = "Dirección no encontrada. Gracias a probar otra.";
+"atm" = "Cajero automático";
+"autre" = "Otro";
+"bar" = "Bar / Cafe";
+"bibliotheque" = "Bibliotecas";
+"bijouterie" = "Joyeros";
+"boulangerie" = "Panaderías";
+"calcul_itineraire" = "Calculando ruta";
+"choisir_destination" = "Elige un destino para calcular una ruta";
+"clique_pour_detail" = "Clic aquí para ver el detalle de la ruta";
+"coiffeur" = "Peluquerías";
+"commencer_la_navigation" = "Iniciar la navegación";
+"culture" = "Cultura";
+"dans" = "En";
+"destination_hint" = "Destino";
+"details_itineraire" = "Detaile de la ruta";
+"erreur_505" = "Se ha producido un error,";
+"erreur_autorisation" = "Debe permitir que la aplicación utilice su posición GPS";
+"erreur_connexion" = "Compruebe su conexión a Internet";
+"erreur_itineraire" = "No se han encontrado ruta por este destino";
+"erreur_pas_de_place_proximite" = "Ningún lugar está cerca.";
+"erreur_localisation" = "No se puede localizar, inténtelo de nuevo.";
+"erreur_vocale" = "No entendía su solicitud. Inténtelo de nuevo.";
+"error_lancement_navigation" = "Debe calcular una ruta antes de iniciar la navegación";
+"etablissements" = "Lista de propiedades";
+"liste_categories" =  "Lista de Categorías";
+"message_aide_boussole" = "Mantenga oprimida la brújula y apunta su teléfono a su alrededor. Cuando se señala en la correcta dirección, su telefono comenzará a vibrar.";
+"navigation" = "Navegación";
+"parametres" = "Configuración";
+"pharmacie" = "Farmacias";
+"pref_bus" = "Permitir ruta con autobús";
+"pref_bus_summ" = "Calcula la ruta utilizando la red de transporte público siempre que sea posible";
+"pref_navigation_title" = "Navegación";
+"pref_tts_title" = "Audio";
+"pref_tts_summ" = "Habilitar sonido";
+"pref_vibrate_summ" = "Vibra cuando llegue a una nueva etapa de la ruta";
+"pref_vibrate_title" = "Vibrador";
+"recherche_en_cours" = "Buscando lugares";
+"recherche_proximite" = "A mi alrededor";
+"recherche_vocale" = "Búsqueda por voz";
+"restaurant" = "Restaurantes";
+"shopping" = "Compras";
+"speech_not_supported" = "Lo siento, su teléfono no es compatible con el reconocimiento de voz!";
+"speech_prompt" = "Constar la dirección o lugar de destino.";
+"supermarche" = "Supermercado";
+"transport" = "Transporte público";
+"vous_arrivez_a_destination" = "Llega a su destino";
+"boussole" = "Brújula";
+"carte" = "Mapa";
+"itineraire" = "%1$s es de %2$s y %3$s.";
+"ma_position" = "Mi posición";
+"ou_je_suis" = "Donde estoy?";
+"search" = "Buscar";
+"vous_vous_trouvez_ici" = "Esta en";

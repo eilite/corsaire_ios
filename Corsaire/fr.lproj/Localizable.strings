@@ -1,0 +1,70 @@
+/* 
+  localizable.strings
+  Corsaire
+
+  Created by Elie on 14/05/2016.
+  Copyright © 2016 Elie. All rights reserved.
+*/
+"app_name" = "Corsaire";
+"google_app_id" = "false";
+"parametres" = "Paramètres";
+"pref_bus" = "Autoriser itinéraire en bus";
+"pref_bus_summ" = "Calcul l\'itinéraire en utilisant le réseau de transport public lorsque c\'est possible";
+"pref_navigation_title" = "Navigation";
+"destination_hint" = "Destination";
+"recherche_vocale" = "Recherche Vocale";
+"recherche_proximite" = "Autour de moi";
+"commencer_la_navigation" = "Commencer la navigation";
+"choisir_destination" = "Choisissez une destination pour calculer un itinéraire";
+"clique_pour_detail" = "Cliquez ici pour avoir le détail de l\'itinéraire";
+"itineraire" = "%1$s se situe à %2$s et à %3$s.";
+"erreur_autorisation" = "Vous devez autoriser la localisation GPS  pour utiliser l\'application";
+"adresse_introuvable" = "Adresse non trouvée. Merci de redéfinir l\'adresse de destination.";
+"erreur_localisation" = "Impossible de vous géolocaliser, veuillez réessayer.";
+"erreur_connexion" = "Vérifiez votre connexion internet";
+"calcul_itineraire" = "Calcul de l\'itinéraire";
+"pref_bus_key" = "pref_bus";
+"erreur_505" = "Une erreur est survenue, veuillez réessayer.";
+"speech_prompt" = "Énoncez l\'adresse ou le lieu de destination.";
+"speech_not_supported" = "Désolé, votre appareil ne supporte pas la reconnaissance vocale!";
+"erreur_vocale" = "Je n\'ai pas compris votre demande. Veuillez réessayer.";
+"bar" = "Bars Café";
+"restaurant" = "Restaurants";
+"supermarche" = "Supermarchés";
+"atm" = "Distributeurs de billets";
+"autre" = "Autres";
+"coiffeur" = "Coiffeurs";
+"bijouterie" = "Bijouterie";
+"bibliotheque" = "Bibliothèques";
+"culture" = "Culture";
+"pharmacie" = "Pharmacies";
+"shopping" = "Shopping";
+"transport" = "Transports en commun";
+"erreur_pas_de_place_proximite" = "Aucun lieu ne se trouve à proximité.";
+"boulangerie" = "Boulangeries";
+"liste_categories" = "Liste des Catégories";
+"etablissements" = "Liste des établissements";
+"recherche_en_cours" = "Recherche en cours";
+"navigation" = "Navigation";
+"error_lancement_navigation" = "Vous devez calculer un itinéraire avant de lancer la navigation";
+"erreur_itineraire" = "Aucun itinéraire disponible pour cette destination";
+"saved_itinerary_key" = "saved_itinerary";
+"saved_itinerary_name_key" = "saved_itinerary_name";
+"details_itineraire" = "Détails de l\'itinéraire";
+"dans" = "Dans";
+"pendant" = "pendant";
+"message_aide_boussole" = "Restez appuyé sur la boussole et orientez votre téléphone autour de vous. Lorsque vous pointez dans la bonne direction, celui-ci se mettra à vibrer.";
+"pref_tts_key"  = "pref_tts";
+"pref_tts_title" = "Audio";
+"pref_tts_summ" = "Activer le son";
+"pref_vibrate_key" = "pref_vibrate";
+"pref_vibrate_title" = "Vibreur";
+"pref_vibrate_summ" = "Vibre lors d\'une nouvelle étape de l\'itinéraire";
+"vous_arrivez_a_destination" = "Vous arrivez à destination";
+"search" = "Rechercher";
+"vous_vous_trouvez_ici" = "Vous êtes à";
+"ou_je_suis" = "Où suis-je?";
+"boussole" = "Boussole";
+"carte" = "Carte";
+"liste" = "Liste";
+"ma_position" = "Ma position";

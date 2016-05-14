@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }else{
              initialViewController = storyboard.instantiateViewControllerWithIdentifier("ValidHome")
         }
-        
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
