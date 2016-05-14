@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class ValidHomeController: UIViewController{
-    
+       
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("app_name".localized)
