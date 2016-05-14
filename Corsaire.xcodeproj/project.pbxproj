@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DB31CE733A0008FE86A /* AppDelegate.swift */; };
 		471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DB51CE733A0008FE86A /* Corsaire.xcdatamodeld */; };
-		471D6DB91CE733A0008FE86A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DB81CE733A0008FE86A /* MasterViewController.swift */; };
-		471D6DBB1CE733A0008FE86A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DBA1CE733A0008FE86A /* DetailViewController.swift */; };
 		471D6DBE1CE733A0008FE86A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471D6DBC1CE733A0008FE86A /* Main.storyboard */; };
 		471D6DC01CE733A0008FE86A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 471D6DBF1CE733A0008FE86A /* Assets.xcassets */; };
 		471D6DC31CE733A0008FE86A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471D6DC11CE733A0008FE86A /* LaunchScreen.storyboard */; };
 		471D6DCE1CE733A0008FE86A /* CorsaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DCD1CE733A0008FE86A /* CorsaireTests.swift */; };
 		471D6DD91CE733A0008FE86A /* CorsaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DD81CE733A0008FE86A /* CorsaireUITests.swift */; };
+		471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DEA1CE73F4C008FE86A /* BlindHomeController.swift */; };
+		471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DED1CE74046008FE86A /* ValidHomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		471D6DB01CE733A0008FE86A /* Corsaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Corsaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		471D6DB31CE733A0008FE86A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		471D6DB61CE733A0008FE86A /* Corsaire.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Corsaire.xcdatamodel; sourceTree = "<group>"; };
-		471D6DB81CE733A0008FE86A /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		471D6DBA1CE733A0008FE86A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		471D6DBD1CE733A0008FE86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		471D6DBF1CE733A0008FE86A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		471D6DC21CE733A0008FE86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		471D6DD41CE733A0008FE86A /* CorsaireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorsaireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		471D6DD81CE733A0008FE86A /* CorsaireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorsaireUITests.swift; sourceTree = "<group>"; };
 		471D6DDA1CE733A0008FE86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		471D6DEA1CE73F4C008FE86A /* BlindHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlindHomeController.swift; sourceTree = "<group>"; };
+		471D6DED1CE74046008FE86A /* ValidHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidHomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +101,10 @@
 		471D6DB21CE733A0008FE86A /* Corsaire */ = {
 			isa = PBXGroup;
 			children = (
+				471D6DE81CE73EE1008FE86A /* Service */,
+				471D6DE71CE73ECD008FE86A /* Valid */,
+				471D6DE61CE73EC5008FE86A /* Blind */,
 				471D6DB31CE733A0008FE86A /* AppDelegate.swift */,
-				471D6DB81CE733A0008FE86A /* MasterViewController.swift */,
-				471D6DBA1CE733A0008FE86A /* DetailViewController.swift */,
 				471D6DBC1CE733A0008FE86A /* Main.storyboard */,
 				471D6DBF1CE733A0008FE86A /* Assets.xcassets */,
 				471D6DC11CE733A0008FE86A /* LaunchScreen.storyboard */,
@@ -129,6 +130,45 @@
 				471D6DDA1CE733A0008FE86A /* Info.plist */,
 			);
 			path = CorsaireUITests;
+			sourceTree = "<group>";
+		};
+		471D6DE61CE73EC5008FE86A /* Blind */ = {
+			isa = PBXGroup;
+			children = (
+				471D6DE91CE73F3D008FE86A /* Home */,
+			);
+			name = Blind;
+			sourceTree = "<group>";
+		};
+		471D6DE71CE73ECD008FE86A /* Valid */ = {
+			isa = PBXGroup;
+			children = (
+				471D6DEC1CE74039008FE86A /* Home */,
+			);
+			name = Valid;
+			sourceTree = "<group>";
+		};
+		471D6DE81CE73EE1008FE86A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		471D6DE91CE73F3D008FE86A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				471D6DEA1CE73F4C008FE86A /* BlindHomeController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		471D6DEC1CE74039008FE86A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				471D6DED1CE74046008FE86A /* ValidHomeController.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
+				471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */,
 				471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */,
-				471D6DB91CE733A0008FE86A /* MasterViewController.swift in Sources */,
-				471D6DBB1CE733A0008FE86A /* DetailViewController.swift in Sources */,
+				471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
