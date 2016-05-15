@@ -20,6 +20,11 @@
 		471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFB1CE7B85A008FE86A /* Extensions.swift */; };
 		471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */; };
 		471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6E011CE7C427008FE86A /* HttpRequest.swift */; };
+		47BA94901CE8BFC6006EA46C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA948F1CE8BFC6006EA46C /* Step.swift */; };
+		47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94911CE8D753006EA46C /* WalkingStep.swift */; };
+		47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94931CE8D825006EA46C /* TransitStep.swift */; };
+		47BA94961CE8E316006EA46C /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94951CE8E316006EA46C /* Polyline.swift */; };
+		47EF05FF1CE8BC0200E3F3B9 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF05FE1CE8BC0200E3F3B9 /* Itinerary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		471D6DFB1CE7B85A008FE86A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryHelper.swift; sourceTree = "<group>"; };
 		471D6E011CE7C427008FE86A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		47BA948F1CE8BFC6006EA46C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		47BA94911CE8D753006EA46C /* WalkingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingStep.swift; sourceTree = "<group>"; };
+		47BA94931CE8D825006EA46C /* TransitStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStep.swift; sourceTree = "<group>"; };
+		47BA94951CE8E316006EA46C /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
+		47EF05FE1CE8BC0200E3F3B9 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 		471D6DB21CE733A0008FE86A /* Corsaire */ = {
 			isa = PBXGroup;
 			children = (
+				47EF05FD1CE8BBF400E3F3B9 /* Model */,
 				471D6DFA1CE7B83A008FE86A /* Helpers */,
 				471D6DE81CE73EE1008FE86A /* Service */,
 				471D6DE71CE73ECD008FE86A /* Valid */,
@@ -193,8 +204,20 @@
 				471D6DFB1CE7B85A008FE86A /* Extensions.swift */,
 				471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */,
 				471D6E011CE7C427008FE86A /* HttpRequest.swift */,
+				47BA94951CE8E316006EA46C /* Polyline.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		47EF05FD1CE8BBF400E3F3B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47EF05FE1CE8BC0200E3F3B9 /* Itinerary.swift */,
+				47BA948F1CE8BFC6006EA46C /* Step.swift */,
+				47BA94911CE8D753006EA46C /* WalkingStep.swift */,
+				47BA94931CE8D825006EA46C /* TransitStep.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,13 +354,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47BA94901CE8BFC6006EA46C /* Step.swift in Sources */,
 				471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */,
+				47EF05FF1CE8BC0200E3F3B9 /* Itinerary.swift in Sources */,
+				47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */,
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
 				471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */,
 				471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */,
 				471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */,
 				471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */,
+				47BA94961CE8E316006EA46C /* Polyline.swift in Sources */,
 				471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */,
+				47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +606,7 @@
 				471D6DDF1CE733A0008FE86A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471D6DE01CE733A0008FE86A /* Build configuration list for PBXNativeTarget "CorsaireTests" */ = {
 			isa = XCConfigurationList;
@@ -586,6 +615,7 @@
 				471D6DE21CE733A0008FE86A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471D6DE31CE733A0008FE86A /* Build configuration list for PBXNativeTarget "CorsaireUITests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +624,7 @@
 				471D6DE51CE733A0008FE86A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

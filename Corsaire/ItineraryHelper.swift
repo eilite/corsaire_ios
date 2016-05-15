@@ -12,64 +12,101 @@ import MapKit
 class ItineraryHelper {
     let BASEURL : String = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyCBSBccUNuVsDo59ISe2AHEd9wfc9SDHCc&mode=transit"
     
-    func getItinerary(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D/*,map: MKMapView, */,actionOnComplete: ((NSData?, NSURLResponse?, NSError?)->Void)?){
+    func getItinerary(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D/*,map: MKMapView, */,actionOnComplete: ((Itinerary)->Void)?){
         //origin=Chicago,IL&destination=Los+Angeles,CA&waypoints=Joplin,MO|Oklahoma+City,OK&
         var jsonItinerary: [String: AnyObject]? = nil
         let httpRequest: HttpRequest = HttpRequest(endpoint: "\(BASEURL)&origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)")
         do{
-            try httpRequest.get(actionOnComplete)
+            try httpRequest.get({(data,response,error) in
+                if error != nil {
+                    print("ERROR \(error)")
+                    return
+                }
+                do{
+                    print("PARSING")
+                    jsonItinerary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                    if let routes = jsonItinerary!["routes"] as? [[String: AnyObject]],legs = routes[0]["legs"] as? [[String: AnyObject]],  destination = legs[0]["end_address"] as? String, startAddress = legs[0]["start_address"] as? String, distanceObj = legs[0]["distance"] as? [String: AnyObject], distance = distanceObj["value"] as? Int, distanceText = distanceObj["text"] as? String, durationObj = legs[0]["duration"] as? [String: AnyObject], durationText = durationObj["text"] as? String, duration = durationObj["value"] as? Int, steps = legs[0]["steps"] as? [[String: AnyObject]], overview_polyline = routes[0]["overview_polyline"] as? [String: String], polyline = overview_polyline["points"]
+                    {
+                        print("LEG \(legs[0])")
+                        
+                        let itinerary: Itinerary = Itinerary(startAddress: startAddress, destination: destination, time: duration, distance: distance, steps: self.getSteps(steps), polyline: polyline, tempsText: durationText, distanceText: distanceText, name: "itinerary")
+                        print("OK")
+                        if let action = actionOnComplete{
+                            action(itinerary)
+                        }
+                        
+                    }
+                    
+                    
+                }catch{
+                    print(error)
+                }
+                
+            })
         }catch{
             print(error)
         }
         
     }
-    /*func drawItinerary(endpoint: String, from_lat: Double, from_lng: Double, to_lat: Double, to_lng: Double, map: MKMapView, mentalView: Bool, actionOnComplete: (([String: AnyObject])->Void)?) {
-        var jsonItinerary: [String: AnyObject]? = nil
-        let httpRequest: HttpRequest = HttpRequest(endpoint: endpoint)
-        let json: NSDictionary = ["from_lat":from_lat, "from_lng": from_lng, "to_lat": to_lat, "to_lng": to_lng]
-        dispatch_async(dispatch_get_main_queue()){
-            map.removeOverlays(map.overlays)
-        }
-        do {
-            try httpRequest.post(json, headers: ["Content-Type":"application/json","Accept":"application/json"],actionOnComplete: {(data, response, error) in
-                if error != nil {
-                    JLToast.makeText(self.erreurCalculItineraire).show()
-                    print("error=\(error)")
-                } else {
-                    do {
-                        jsonItinerary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
-                        if let itinerary = jsonItinerary, route = itinerary["route"] as? [String: AnyObject], shape = route["shape"] as? [String: AnyObject], shapePoints = shape["shapePoints"] as? [Double] {
-                            var pointsArray: [CLLocationCoordinate2D] = []
-                            for i in 0..<(shapePoints.count) {
-                                if(i%2==0) {
-                                    pointsArray.append(CLLocationCoordinate2D(latitude: shapePoints[i], longitude: shapePoints[i+1]))
-                                }
+    
+    func getSteps(json: [[String: AnyObject]])-> [Step]{
+        var steps: [Step] = []
+        for step in json {
+            if let travelMode = step["travel_mode"] as? String{
+                print("TRAVELMODE \(travelMode)")
+                if(travelMode == ("WALKING")){
+                    if let subSteps = step["steps"] as? [[String: AnyObject]]{
+                        for substep in subSteps{
+                            var substepcopy = substep
+                            if (substep["html_instructions"] == nil){
+                                substepcopy["html_instructions"] = step["html_instructions"] as! String
                             }
-                            let polyline = MKPolyline(coordinates: &pointsArray, count: (shapePoints.count/2))
-                            dispatch_async(dispatch_get_main_queue(), {
-                                if(mentalView){
-                                    let overlay = MentalTileOverlay()
-                                    overlay.canReplaceMapContent = true
-                                    map.addOverlays([overlay,polyline])
-                                }else{
-                                    map.addOverlay(polyline)
+                            
+                            if let startLocation = substepcopy["start_location"] as? [String: AnyObject], startlng = startLocation["lng"] as? Double, startlat = startLocation["lat"] as? Double, endLocation = substepcopy["end_location"] as? [String: AnyObject], endlng = endLocation["lng"] as? Double, endlat = endLocation["lat"] as? Double, narrative = substepcopy["html_instructions"] as? String, polyline = substepcopy["polyline"] as? [String: AnyObject], points = polyline["points"] as? String{
+                                var maneuver: String = ""
+                                let poly: Polyline = Polyline(encodedPolyline: points)
+                                if let manvr = substepcopy["maneuver"] as? String{
+                                    maneuver = manvr
                                 }
-                                if let action = actionOnComplete{
-                                    action(itinerary)
-                                }
-                            })
-                        }else{
-                            JLToast.makeText(self.erreurCalculItineraire).show()
+                                
+                                steps.append(WalkingStep(maneuver: maneuver, start: CLLocationCoordinate2D(latitude: startlat, longitude: startlng), end: CLLocationCoordinate2D(latitude: endlat, longitude: endlng), narrative: narrative, polyline: poly.locations!))
+                            }
                         }
-                    } catch {
-                        print(error)
-                        JLToast.makeText(self.erreurCalculItineraire).show()
+                    }else{
+                        if let startLocation = step["start_location"] as? [String: AnyObject], startlng = startLocation["lng"] as? Double, startlat = startLocation["lat"] as? Double, endLocation = step["end_location"] as? [String: AnyObject], endlng = endLocation["lng"] as? Double, endlat = endLocation["lat"] as? Double, narrative = step["html_instructions"] as? String, polyline = step["polyline"] as? [String: AnyObject], points = polyline["points"] as? String{
+                            var maneuver: String = ""
+                            let poly: Polyline = Polyline(encodedPolyline: points)
+                            if let manvr = step["maneuver"] as? String{
+                                maneuver = manvr
+                            }
+                            
+                            steps.append(WalkingStep(maneuver: maneuver, start: CLLocationCoordinate2D(latitude: startlat, longitude: startlng), end: CLLocationCoordinate2D(latitude: endlat, longitude: endlng), narrative: narrative, polyline: poly.locations!))
+                        }
                     }
+                    
+                }else if(travelMode == "TRANSIT"){
+                    if let startLocation = step["start_location"] as? [String: AnyObject], startlng = startLocation["lng"] as? Double, startlat = startLocation["lat"] as? Double, endLocation = step["end_location"] as? [String: AnyObject], endlng = endLocation["lng"] as? Double, endlat = endLocation["lat"] as? Double, narrative = step["html_instructions"] as? String, polyline = step["polyline"] as? [String: AnyObject], points = polyline["points"] as? String, transitDetails = step["transit_details"] as? [String: AnyObject], departureStop = transitDetails["departure_stop"] as? [String: AnyObject], arrivalStop = transitDetails["arrival_stop"] as? [String: AnyObject], departureStopName = departureStop["name"] as? String, arrivalStopName = arrivalStop["name"] as? String, departureTime = transitDetails["departure_time"] as? [String: AnyObject], departureTimeText = departureTime["text"] as? String
+                    {
+                        var maneuver: String = ""
+                        let poly: Polyline = Polyline(encodedPolyline: points)
+                        if let manvr = step["maneuver"] as? String{
+                            maneuver = manvr
+                        }
+                        var shortname: String = ""
+                        if let line = transitDetails["line"] as? [String: AnyObject], srtnm = line["short_name"] as? String{
+                            shortname = "(\(srtnm))"
+                        }
+                        let nrtv = "\("prendre_le".localized) \(narrative) \(shortname) \("de_larret".localized) \(departureStopName) \("jusqua_larret".localized) \(arrivalStopName)"
+                        
+                        steps.append(TransitStep(maneuver: maneuver, start: CLLocationCoordinate2D(latitude: startlat, longitude: startlng), end: CLLocationCoordinate2D(latitude: endlat, longitude: endlng), narrative: nrtv, polyline: poly.locations!, departureTime: departureTimeText))
+                        }
                 }
-            })
-        } catch {
-            print(error)
+                
+                
+            }
         }
-    }*/
+        
+        return steps
+    }
 
 }
