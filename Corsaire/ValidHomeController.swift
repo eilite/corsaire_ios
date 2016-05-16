@@ -49,10 +49,11 @@ class ValidHomeController: UIViewController{
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        
         //itinerary calculation
         let departure: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 52.5680398, longitude: 13.3293264)
         let arrival: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 52.5581004,longitude: 13.3313435)
-        let itineraryHelper: ItineraryHelper = ItineraryHelper(transit: false)
+        let itineraryHelper: ItineraryHelper = ItineraryHelper()
         
         itineraryHelper.getItinerary(departure, arrival: arrival, actionOnComplete:{(itinerary) in
             print("ITINERARY STEPS \(itinerary.steps)")

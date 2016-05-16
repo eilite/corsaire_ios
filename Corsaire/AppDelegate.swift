@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController: UIViewController
+        
         if(UIAccessibilityIsVoiceOverRunning()){
               initialViewController = storyboard.instantiateViewControllerWithIdentifier("BlindHome")
         }else{
@@ -116,6 +117,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
     }
-
 }
 

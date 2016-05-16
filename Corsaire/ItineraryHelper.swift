@@ -12,7 +12,11 @@ import MapKit
 class ItineraryHelper {
     var BASEURL : String = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyCBSBccUNuVsDo59ISe2AHEd9wfc9SDHCc"
     
-    init(transit: Bool){
+    init(){
+        registerSettingsBundle()
+        //settings
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let transit = defaults.boolForKey("transit_preference")
         if(transit){
             BASEURL = "\(BASEURL)&mode=transit"
         }else{
@@ -116,5 +120,13 @@ class ItineraryHelper {
         
         return steps
     }
+    
+    private func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        NSUserDefaults.standardUserDefaults().registerDefaults(appDefaults)
+        //NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    
 
 }
