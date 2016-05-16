@@ -20,10 +20,13 @@
 		471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFB1CE7B85A008FE86A /* Extensions.swift */; };
 		471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */; };
 		471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6E011CE7C427008FE86A /* HttpRequest.swift */; };
+		476978671CE9E6FF002C177F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476978661CE9E6FF002C177F /* Info.plist */; };
+		476978691CE9F2F3002C177F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476978681CE9F2F3002C177F /* Colors.swift */; };
 		47BA94901CE8BFC6006EA46C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA948F1CE8BFC6006EA46C /* Step.swift */; };
 		47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94911CE8D753006EA46C /* WalkingStep.swift */; };
 		47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94931CE8D825006EA46C /* TransitStep.swift */; };
 		47BA94961CE8E316006EA46C /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94951CE8E316006EA46C /* Polyline.swift */; };
+		47D56F2B1CE92D1D0056D01B /* LocationSearchTableArrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D56F2A1CE92D1D0056D01B /* LocationSearchTableArrival.swift */; };
 		47EF05FF1CE8BC0200E3F3B9 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF05FE1CE8BC0200E3F3B9 /* Itinerary.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +54,6 @@
 		471D6DBD1CE733A0008FE86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		471D6DBF1CE733A0008FE86A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		471D6DC21CE733A0008FE86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		471D6DC41CE733A0008FE86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		471D6DC91CE733A0008FE86A /* CorsaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorsaireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		471D6DCD1CE733A0008FE86A /* CorsaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorsaireTests.swift; sourceTree = "<group>"; };
 		471D6DCF1CE733A0008FE86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,10 +72,14 @@
 		471D6DFB1CE7B85A008FE86A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryHelper.swift; sourceTree = "<group>"; };
 		471D6E011CE7C427008FE86A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		476978661CE9E6FF002C177F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		476978681CE9F2F3002C177F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		47BA948F1CE8BFC6006EA46C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		47BA94911CE8D753006EA46C /* WalkingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingStep.swift; sourceTree = "<group>"; };
 		47BA94931CE8D825006EA46C /* TransitStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStep.swift; sourceTree = "<group>"; };
 		47BA94951CE8E316006EA46C /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
+		47D56F2A1CE92D1D0056D01B /* LocationSearchTableArrival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableArrival.swift; sourceTree = "<group>"; };
+		47D56F311CE9E55C0056D01B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		47EF05FE1CE8BC0200E3F3B9 /* Itinerary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,9 +140,9 @@
 				471D6DBC1CE733A0008FE86A /* Main.storyboard */,
 				471D6DBF1CE733A0008FE86A /* Assets.xcassets */,
 				471D6DC11CE733A0008FE86A /* LaunchScreen.storyboard */,
-				471D6DC41CE733A0008FE86A /* Info.plist */,
 				471D6DB51CE733A0008FE86A /* Corsaire.xcdatamodeld */,
 				471D6DF71CE74B24008FE86A /* Localizable.strings */,
+				476978661CE9E6FF002C177F /* Info.plist */,
 			);
 			path = Corsaire;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 				471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */,
 				471D6E011CE7C427008FE86A /* HttpRequest.swift */,
 				47BA94951CE8E316006EA46C /* Polyline.swift */,
+				47D56F2A1CE92D1D0056D01B /* LocationSearchTableArrival.swift */,
+				476978681CE9F2F3002C177F /* Colors.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 				471D6DC31CE733A0008FE86A /* LaunchScreen.storyboard in Resources */,
 				471D6DF51CE74B24008FE86A /* Localizable.strings in Resources */,
 				471D6DC01CE733A0008FE86A /* Assets.xcassets in Resources */,
+				476978671CE9E6FF002C177F /* Info.plist in Resources */,
 				471D6DBE1CE733A0008FE86A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +366,8 @@
 				47BA94901CE8BFC6006EA46C /* Step.swift in Sources */,
 				471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */,
 				47EF05FF1CE8BC0200E3F3B9 /* Itinerary.swift in Sources */,
+				476978691CE9F2F3002C177F /* Colors.swift in Sources */,
+				47D56F2B1CE92D1D0056D01B /* LocationSearchTableArrival.swift in Sources */,
 				47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */,
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
 				471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */,
@@ -427,6 +438,7 @@
 				471D6DF61CE74B24008FE86A /* en */,
 				471D6DF81CE74B54008FE86A /* fr */,
 				471D6DF91CE74B58008FE86A /* es */,
+				47D56F311CE9E55C0056D01B /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

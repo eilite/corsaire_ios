@@ -10,7 +10,15 @@ import Foundation
 import MapKit
 // APIkey : AIzaSyCBSBccUNuVsDo59ISe2AHEd9wfc9SDHCc
 class ItineraryHelper {
-    let BASEURL : String = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyCBSBccUNuVsDo59ISe2AHEd9wfc9SDHCc&mode=transit"
+    var BASEURL : String = "https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyCBSBccUNuVsDo59ISe2AHEd9wfc9SDHCc"
+    
+    init(transit: Bool){
+        if(transit){
+            BASEURL = "\(BASEURL)&mode=transit"
+        }else{
+            BASEURL = "\(BASEURL)&mode=walking"
+        }
+    }
     
     func getItinerary(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D/*,map: MKMapView, */,actionOnComplete: ((Itinerary)->Void)?){
         //origin=Chicago,IL&destination=Los+Angeles,CA&waypoints=Joplin,MO|Oklahoma+City,OK&

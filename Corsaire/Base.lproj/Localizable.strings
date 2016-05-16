@@ -1,0 +1,63 @@
+/* 
+  localizable.strings
+  Corsaire
+
+  Created by Elie on 14/05/2016.
+  Copyright © 2016 Elie. All rights reserved.
+*/
+
+"app_name" = "Corsair GPS";
+"adresse_introuvable" = "Address not found, Please try an other address.";
+"atm" = "ATM";
+"autre" = "Others";
+"bar" = "Bar / Café";
+"bibliotheque" = "Libraries";
+"bijouterie" = "Jewellery Stores";
+"boulangerie" = "Bakeries";
+"calcul_itineraire" = "Calculating your route";
+"choisir_destination" = "Choose a destination to calculate a route";
+"clique_pour_detail" = "Click here to see the detail of the route";
+"coiffeur" = "Hair salons";
+"commencer_la_navigation" = "Start navigation";
+"culture" = "Culture";
+"dans" = "In";
+"destination_hint" = "Destination";
+"details_itineraire" = "Detail of the route";
+"erreur_505" = "An error has occurred, Please try again.";
+"erreur_autorisation" = "You must allow the application to access your location to use the application";
+"erreur_connexion" = "Check your internet connection";
+"erreur_itineraire" = "Sorry, there is no route founded for this destination";
+"erreur_localisation" = "Unable to locate you, please try again.";
+"erreur_pas_de_place_proximite" = "No place is nearby.";
+"erreur_vocale" = "I did not understand your request. Try Again.";
+"error_lancement_navigation" = "You must calculate a route before starting navigation";
+"etablissements" = "Property list";
+"liste_categories" = "Category list";
+"message_aide_boussole" = "Press and hold the compass and orient your phone around you. When you point in the right direction, it will start to vibrate.";
+"navigation" = "Navigation";
+"parametres" = "Settings";
+"pharmacie" = "Pharmacies";
+"pref_bus" = "Allow bus route";
+"pref_bus_summ" = "Calculate the route using public transportation network where possible";
+"pref_navigation_title" = "Navigation";
+"pref_tts_title" = "Audio";
+"pref_tts_summ" = "Enable Sound";
+"pref_vibrate_summ" = "Vibrates when you reach a new step of the route";
+"pref_vibrate_title" = "Vibrator";
+"recherche_en_cours" = "Search in progress";
+"recherche_proximite" = "Around Me";
+"recherche_vocale" = "Voice Search";
+"restaurant" = "Restaurants";
+"shopping" = "Shopping";
+"speech_not_supported" = "Sorry, your phone does not support voice recognition!";
+"speech_prompt" = "Speak an address or a place";
+"supermarche" = "Supermarket";
+"transport" = "Public transports";
+"vous_arrivez_a_destination" = "You arrive at your destination";
+"boussole" = "Compass";
+"carte" = "Map";
+"itineraire" = "%1$s is located at %2$s and at %3$s.";
+"ma_position" = "My location";
+"ou_je_suis" = "Where am I ?";
+"search" = "Search";
+"vous_vous_trouvez_ici" = "You are at";
