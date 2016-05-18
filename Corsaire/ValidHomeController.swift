@@ -61,7 +61,6 @@ class ValidHomeController: UIViewController{
                 var polylinePoints: [CLLocationCoordinate2D] = []
                 for step in itinerary.steps{
                     let points: [CLLocationCoordinate2D] = step.polyline.map({(point)->CLLocationCoordinate2D in
-                        print("POINTS DE POLYLINE\(point.coordinate)")
                         return point.coordinate
                     })
                      polylinePoints.appendContentsOf(points)
@@ -78,27 +77,6 @@ class ValidHomeController: UIViewController{
         
     }
 
-}
-
-extension ValidHomeController: CLLocationManagerDelegate{
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
-            locationManager.requestLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            self.userLocation = location
-            let span = MKCoordinateSpanMake(0.05, 0.05)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error:: \(error)")
-    }
 }
 
 extension ValidHomeController: HandleMapSearchArrival {
@@ -119,7 +97,6 @@ extension ValidHomeController: HandleMapSearchArrival {
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
-            print("ARRIVEE \(annotation.coordinate)")
         }
         self.mapView.addAnnotation(annotation)
         
@@ -128,19 +105,5 @@ extension ValidHomeController: HandleMapSearchArrival {
     }
 }
 
-extension ValidHomeController: MKMapViewDelegate{
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is MKPolyline {
-            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = Colors.middleBlue
-            polylineRenderer.lineWidth = 3
-            return polylineRenderer
-        }
-        else
-        {
-            return MKOverlayRenderer()
-        }
-    }
 
-}
 
