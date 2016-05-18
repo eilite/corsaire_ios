@@ -35,14 +35,11 @@ class ItineraryHelper {
                     return
                 }
                 do{
-                    print("PARSING")
                     jsonItinerary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                     if let routes = jsonItinerary!["routes"] as? [[String: AnyObject]],legs = routes[0]["legs"] as? [[String: AnyObject]],  destination = legs[0]["end_address"] as? String, startAddress = legs[0]["start_address"] as? String, distanceObj = legs[0]["distance"] as? [String: AnyObject], distance = distanceObj["value"] as? Int, distanceText = distanceObj["text"] as? String, durationObj = legs[0]["duration"] as? [String: AnyObject], durationText = durationObj["text"] as? String, duration = durationObj["value"] as? Int, steps = legs[0]["steps"] as? [[String: AnyObject]], overview_polyline = routes[0]["overview_polyline"] as? [String: String], polyline = overview_polyline["points"]
                     {
-                        print("LEG \(legs[0])")
                         
                         let itinerary: Itinerary = Itinerary(startAddress: startAddress, destination: destination, time: duration, distance: distance, steps: self.getSteps(steps), polyline: polyline, tempsText: durationText, distanceText: distanceText, name: "itinerary")
-                        print("OK")
                         if let action = actionOnComplete{
                             action(itinerary)
                         }

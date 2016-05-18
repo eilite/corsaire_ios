@@ -18,14 +18,21 @@ class ValidHomeController: UIViewController{
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
-    var arrivalLocation: CLLocationCoordinate2D? = nil
+    var arrivalLocation: CLLocation? = nil
+    var userLocation: CLLocation? = nil
+    let itineraryHelper: ItineraryHelper = ItineraryHelper()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.delegate = self
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        
         print("app_name".localized)
         aroundMeButton.setTitle("recherche_proximite".localized, forState: .Normal)
         
@@ -45,19 +52,30 @@ class ValidHomeController: UIViewController{
         searchBarArrival.layer.borderColor = UIColor.blueColor().CGColor
         
         arrivalView.addSubview(searchBarArrival)
+    }
+    
+    func fetchAndDrawItinerary(){
+        if let departure = self.userLocation, arrival = self.arrivalLocation {
+            itineraryHelper.getItinerary(departure.coordinate, arrival: arrival.coordinate, actionOnComplete:{(itinerary) in
+                //draw itinerary on map
+                var polylinePoints: [CLLocationCoordinate2D] = []
+                for step in itinerary.steps{
+                    let points: [CLLocationCoordinate2D] = step.polyline.map({(point)->CLLocationCoordinate2D in
+                        print("POINTS DE POLYLINE\(point.coordinate)")
+                        return point.coordinate
+                    })
+                     polylinePoints.appendContentsOf(points)
+                    
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    let polyline = MKPolyline(coordinates: &polylinePoints, count: polylinePoints.count)
+                    self.mapView.addOverlay(polyline, level: .AboveLabels)
+                })
+                
+            })
+        }
         
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
         
-        //itinerary calculation
-        let departure: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 52.5680398, longitude: 13.3293264)
-        let arrival: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 52.5581004,longitude: 13.3313435)
-        let itineraryHelper: ItineraryHelper = ItineraryHelper()
-        
-        itineraryHelper.getItinerary(departure, arrival: arrival, actionOnComplete:{(itinerary) in
-            print("ITINERARY STEPS \(itinerary.steps)")
-        })
     }
 
 }
@@ -71,6 +89,7 @@ extension ValidHomeController: CLLocationManagerDelegate{
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            self.userLocation = location
             let span = MKCoordinateSpanMake(0.05, 0.05)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
@@ -87,12 +106,12 @@ extension ValidHomeController: HandleMapSearchArrival {
         //remove previous pin
         self.mapView.removeAnnotations(self.mapView.annotations)
         //Save new arrival
-        arrivalLocation = placemark.location!.coordinate
+        self.arrivalLocation = placemark.location!
         //And update the searchbar text
         let address = (placemark.subThoroughfare ?? "") + " " + (placemark.thoroughfare ?? "") + ", " +
             (placemark.locality ?? "") + ", " + (placemark.country ?? "")
         resultSearchController!.searchBar.text = address
-        
+        //set arrival location
         //Add annotation
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
@@ -100,11 +119,28 @@ extension ValidHomeController: HandleMapSearchArrival {
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
+            print("ARRIVEE \(annotation.coordinate)")
         }
         self.mapView.addAnnotation(annotation)
         
         //Fetch and draw itinerary
-//        self.drawCurrentItinerary()
+        self.fetchAndDrawItinerary()
     }
+}
+
+extension ValidHomeController: MKMapViewDelegate{
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = Colors.middleBlue
+            polylineRenderer.lineWidth = 3
+            return polylineRenderer
+        }
+        else
+        {
+            return MKOverlayRenderer()
+        }
+    }
+
 }
 
