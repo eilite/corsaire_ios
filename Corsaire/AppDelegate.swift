@@ -13,20 +13,26 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var navController: UINavigationController?
+
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        navController = UINavigationController()
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController: UIViewController
-        
+
         if(UIAccessibilityIsVoiceOverRunning()){
               initialViewController = storyboard.instantiateViewControllerWithIdentifier("BlindHome")
         }else{
-             initialViewController = storyboard.instantiateViewControllerWithIdentifier("ValidHome")
+             initialViewController = storyboard.instantiateViewControllerWithIdentifier("ValidHome") as! ValidHomeController
+            self.navController!.pushViewController(initialViewController, animated: false)
+            self.window!.rootViewController = navController
+//             self.window!.backgroundColor = UIColor.whiteColor()
         }
-        self.window?.rootViewController = initialViewController
+        self.window?.rootViewController = self.navController
         self.window?.makeKeyAndVisible()
         
         return true

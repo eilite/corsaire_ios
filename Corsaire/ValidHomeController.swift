@@ -25,7 +25,11 @@ class ValidHomeController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Corsaire"
+        print("NAVIGATION CONTROLLER\(self.navigationController!)")
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.greenColor()
+
         self.mapView.delegate = self
         
         locationManager.delegate = self
@@ -36,6 +40,8 @@ class ValidHomeController: UIViewController{
         print("app_name".localized)
         aroundMeButton.setTitle("recherche_proximite".localized, forState: .Normal)
         
+        aroundMeButton.addTarget(self, action: #selector(aroundMeButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+
         //location search bar
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTableArrival") as! LocationSearchTableArrival
         locationSearchTable.mapView = mapView
@@ -76,7 +82,13 @@ class ValidHomeController: UIViewController{
         
         
     }
-
+    
+    func aroundMeButtonPressed(sender: UIButton!){
+        print("BUTTON PRESSED")
+        let vc = AroundMeController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension ValidHomeController: HandleMapSearchArrival {

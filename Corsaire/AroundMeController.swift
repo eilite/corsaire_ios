@@ -15,7 +15,7 @@ class AroundMeController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initCategories()
-        print("view did load")
+        navigationController?.navigationBar.barTintColor = UIColor.greenColor()
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.keys.count
