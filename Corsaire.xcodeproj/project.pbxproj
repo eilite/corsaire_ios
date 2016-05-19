@@ -23,6 +23,8 @@
 		476978671CE9E6FF002C177F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476978661CE9E6FF002C177F /* Info.plist */; };
 		476978691CE9F2F3002C177F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476978681CE9F2F3002C177F /* Colors.swift */; };
 		4769786B1CEA138A002C177F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4769786A1CEA138A002C177F /* Settings.bundle */; };
+		478140F41CEE5055001943B2 /* AroundMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478140F31CEE5055001943B2 /* AroundMeController.swift */; };
+		478140F61CEE5225001943B2 /* AroundMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478140F51CEE5225001943B2 /* AroundMeCell.swift */; };
 		47BA94901CE8BFC6006EA46C /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA948F1CE8BFC6006EA46C /* Step.swift */; };
 		47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94911CE8D753006EA46C /* WalkingStep.swift */; };
 		47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA94931CE8D825006EA46C /* TransitStep.swift */; };
@@ -78,6 +80,8 @@
 		476978661CE9E6FF002C177F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		476978681CE9F2F3002C177F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4769786A1CEA138A002C177F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		478140F31CEE5055001943B2 /* AroundMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AroundMeController.swift; sourceTree = "<group>"; };
+		478140F51CEE5225001943B2 /* AroundMeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AroundMeCell.swift; sourceTree = "<group>"; };
 		47BA948F1CE8BFC6006EA46C /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		47BA94911CE8D753006EA46C /* WalkingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingStep.swift; sourceTree = "<group>"; };
 		47BA94931CE8D825006EA46C /* TransitStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStep.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		471D6DE71CE73ECD008FE86A /* Valid */ = {
 			isa = PBXGroup;
 			children = (
+				478140F21CEE5033001943B2 /* AroundMe */,
 				471D6DEC1CE74039008FE86A /* Home */,
 			);
 			name = Valid;
@@ -226,6 +231,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		478140F21CEE5033001943B2 /* AroundMe */ = {
+			isa = PBXGroup;
+			children = (
+				478140F31CEE5055001943B2 /* AroundMeController.swift */,
+			);
+			name = AroundMe;
+			sourceTree = "<group>";
+		};
 		47EF05FD1CE8BBF400E3F3B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +246,7 @@
 				47BA948F1CE8BFC6006EA46C /* Step.swift */,
 				47BA94911CE8D753006EA46C /* WalkingStep.swift */,
 				47BA94931CE8D825006EA46C /* TransitStep.swift */,
+				478140F51CEE5225001943B2 /* AroundMeCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -385,9 +399,11 @@
 				471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */,
 				47F63A4B1CED1BEE0057737F /* ValidHomeMapDelegate.swift in Sources */,
 				471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */,
+				478140F61CEE5225001943B2 /* AroundMeCell.swift in Sources */,
 				471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */,
 				47BA94961CE8E316006EA46C /* Polyline.swift in Sources */,
 				471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */,
+				478140F41CEE5055001943B2 /* AroundMeController.swift in Sources */,
 				47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
