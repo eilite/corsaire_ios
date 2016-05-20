@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController: UIViewController
 
+        UINavigationBar.appearance().barTintColor = UIColor.greenColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+//        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
         if(UIAccessibilityIsVoiceOverRunning()){
               initialViewController = storyboard.instantiateViewControllerWithIdentifier("BlindHome")
         }else{

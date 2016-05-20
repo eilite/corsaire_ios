@@ -25,10 +25,15 @@ class ValidHomeController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigation bar
         self.title = "Corsaire"
-        print("NAVIGATION CONTROLLER\(self.navigationController!)")
+        let logo: UIButton = UIButton(frame: CGRectMake(0, 0, 51, 31))
+        logo.setImage(UIImage(named: "logo"), forState: .Normal)
+        let settings: UIButton = UIButton(frame: CGRectMake(0, 0, 50, 50))
+        settings.setImage(UIImage(named: "settings"), forState: .Normal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logo)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settings)
         self.navigationController?.navigationBar.hidden = false
-        self.navigationController?.navigationBar.barTintColor = UIColor.greenColor()
 
         self.mapView.delegate = self
         
@@ -37,10 +42,7 @@ class ValidHomeController: UIViewController{
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        print("app_name".localized)
         aroundMeButton.setTitle("recherche_proximite".localized, forState: .Normal)
-        
-        aroundMeButton.addTarget(self, action: #selector(aroundMeButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
 
         //location search bar
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTableArrival") as! LocationSearchTableArrival
@@ -81,12 +83,6 @@ class ValidHomeController: UIViewController{
         }
         
         
-    }
-    
-    func aroundMeButtonPressed(sender: UIButton!){
-        print("BUTTON PRESSED")
-        let vc = AroundMeController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
