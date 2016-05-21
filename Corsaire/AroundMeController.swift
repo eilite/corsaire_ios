@@ -8,13 +8,16 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class AroundMeController: UITableViewController {
     private var categories: [String: (String,[String])] = [String: (String,[String])]()
-    
+    var userLocation: CLLocation? = nil
+    var sortedCategorieKeys: [String]? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initCategories()
+        self.title = "liste_categories".localized
         
         let settings: UIButton = UIButton(frame: CGRectMake(0, 0, 50, 50))
         settings.setImage(UIImage(named: "settings"), forState: .Normal)
@@ -33,10 +36,25 @@ class AroundMeController: UITableViewController {
                 return key != "autre".localized
         }).sort()
         categorieKeysWithoutOthers.append("autre".localized)
+        self.sortedCategorieKeys = categorieKeysWithoutOthers
         let key: String = categorieKeysWithoutOthers[indexPath.item]
         cell.textLabel?.text = key
         cell.imageView?.image = UIImage(named: self.categories[key]!.0)
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //calculer les points autour
+        //perform segue
+        if let categorieKeys = self.sortedCategorieKeys, userLoc = self.userLocation{
+            PlacesHelper.getCategories(categorieKeys[indexPath.item], userLocation: userLoc, categories: self.categories, actionOnComplete: {(places) in
+                print("NOMBRE DE PLACES \(places.count)")
+            })
+        }else{
+            print("REQUIRED PARAMETER MISSING")
+        }
+        
+        performSegueWithIdentifier("locationsSegue", sender: self)
     }
     
     private func initCategories() {
@@ -46,7 +64,7 @@ class AroundMeController: UITableViewController {
         self.categories["coiffeur".localized] = ("coiffeur",["hair_care"])
         self.categories["culture".localized] = ("culture",["library","museum"])
         self.categories["atm".localized] = ("atm",["atm"])
-        self.categories["pharmacie".localized] = ("pharmacie",["pharmacy","museum"])
+        self.categories["pharmacie".localized] = ("pharmacie",["pharmacy"])
         self.categories["restaurant".localized] = ("restaurant",["restaurant"])
         self.categories["supermarche".localized] = ("supermarche",["grocery_or_supermarket"])
         self.categories["transport".localized] = ("transport",["subway_station","bus_station","train_station"])

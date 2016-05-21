@@ -62,6 +62,25 @@ class ValidHomeController: UIViewController{
         arrivalView.addSubview(searchBarArrival)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "aroundMeSegue"){
+            if let userLoc = self.userLocation{
+                let svc = segue.destinationViewController as! AroundMeController
+                svc.userLocation = userLoc
+            }
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if(identifier == "aroundMeSegue"){
+            if(self.userLocation == nil){
+                print("NO LOCATION")
+                return false;
+            }
+        }
+        return true
+    }
+    
     func fetchAndDrawItinerary(){
         if let departure = self.userLocation, arrival = self.arrivalLocation {
             itineraryHelper.getItinerary(departure.coordinate, arrival: arrival.coordinate, actionOnComplete:{(itinerary) in

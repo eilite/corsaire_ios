@@ -18,6 +18,9 @@
 		471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFB1CE7B85A008FE86A /* Extensions.swift */; };
 		471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */; };
 		471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6E011CE7C427008FE86A /* HttpRequest.swift */; };
+		47326D1D1CF083B100FA63EC /* LocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47326D1C1CF083B100FA63EC /* LocationsController.swift */; };
+		4751B0941CF0864100F04280 /* PlacesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751B0931CF0864100F04280 /* PlacesHelper.swift */; };
+		4751B0961CF092BA00F04280 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751B0951CF092BA00F04280 /* Place.swift */; };
 		476900831CEE70A300F57E2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476900811CEE70A300F57E2D /* Main.storyboard */; };
 		476978671CE9E6FF002C177F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476978661CE9E6FF002C177F /* Info.plist */; };
 		476978691CE9F2F3002C177F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476978681CE9F2F3002C177F /* Colors.swift */; };
@@ -70,6 +73,9 @@
 		471D6DFB1CE7B85A008FE86A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryHelper.swift; sourceTree = "<group>"; };
 		471D6E011CE7C427008FE86A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		47326D1C1CF083B100FA63EC /* LocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsController.swift; sourceTree = "<group>"; };
+		4751B0931CF0864100F04280 /* PlacesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesHelper.swift; sourceTree = "<group>"; };
+		4751B0951CF092BA00F04280 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		476900821CEE70A300F57E2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		476978661CE9E6FF002C177F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		476978681CE9F2F3002C177F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 				47BA94951CE8E316006EA46C /* Polyline.swift */,
 				47D56F2A1CE92D1D0056D01B /* LocationSearchTableArrival.swift */,
 				476978681CE9F2F3002C177F /* Colors.swift */,
+				4751B0931CF0864100F04280 /* PlacesHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				478140F31CEE5055001943B2 /* AroundMeController.swift */,
+				47326D1C1CF083B100FA63EC /* LocationsController.swift */,
 			);
 			name = AroundMe;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				47BA94911CE8D753006EA46C /* WalkingStep.swift */,
 				47BA94931CE8D825006EA46C /* TransitStep.swift */,
 				478140F51CEE5225001943B2 /* AroundMeCell.swift */,
+				4751B0951CF092BA00F04280 /* Place.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -383,6 +392,7 @@
 				471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */,
 				47EF05FF1CE8BC0200E3F3B9 /* Itinerary.swift in Sources */,
 				476978691CE9F2F3002C177F /* Colors.swift in Sources */,
+				47326D1D1CF083B100FA63EC /* LocationsController.swift in Sources */,
 				47D56F2B1CE92D1D0056D01B /* LocationSearchTableArrival.swift in Sources */,
 				47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */,
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
@@ -390,11 +400,13 @@
 				47F63A4D1CED1C1B0057737F /* ValidHomeMapLocationDelegate.swift in Sources */,
 				471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */,
 				47F63A4B1CED1BEE0057737F /* ValidHomeMapDelegate.swift in Sources */,
+				4751B0961CF092BA00F04280 /* Place.swift in Sources */,
 				471D6DB71CE733A0008FE86A /* Corsaire.xcdatamodeld in Sources */,
 				478140F61CEE5225001943B2 /* AroundMeCell.swift in Sources */,
 				471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */,
 				47BA94961CE8E316006EA46C /* Polyline.swift in Sources */,
 				471D6DEB1CE73F4C008FE86A /* BlindHomeController.swift in Sources */,
+				4751B0941CF0864100F04280 /* PlacesHelper.swift in Sources */,
 				478140F41CEE5055001943B2 /* AroundMeController.swift in Sources */,
 				47BA94941CE8D825006EA46C /* TransitStep.swift in Sources */,
 			);
