@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         var initialViewController: UIViewController
 
         UINavigationBar.appearance().barTintColor = UIColor.greenColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(15, weight: UIFontWeightHeavy)]
 //        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         if(UIAccessibilityIsVoiceOverRunning()){

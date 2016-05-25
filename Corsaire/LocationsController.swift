@@ -14,7 +14,8 @@ class LocationsController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Locations"
+        self.title = "liste_categories".localized
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
