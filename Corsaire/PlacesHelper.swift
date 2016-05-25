@@ -39,10 +39,9 @@ class PlacesHelper{
                             return;
                         }
                         for result in results{
-                            print("IN LOOP")
                             if let geometry = result["geometry"] as? [String: AnyObject], location = geometry["location"] as? [String: AnyObject], name = result["name"] as? String, lat = location["lat"] as? Double, lng = location["lng"] as? Double{
-                                print("PLACE : \(name) \(lat) \(lng)")
-                                places.append(Place(title: name, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng)))
+                                let pointCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                                places.append(Place(title: name, subtitle: nil, distance: Int(userLocation.distanceFromLocation(CLLocation(latitude: pointCoordinate.latitude, longitude: pointCoordinate.longitude))), coordinate: pointCoordinate))
                                 
                             }
                          }

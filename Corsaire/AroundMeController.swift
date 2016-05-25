@@ -14,9 +14,11 @@ class AroundMeController: UITableViewController {
     private var categories: [String: (String,[String])] = [String: (String,[String])]()
     var userLocation: CLLocation? = nil
     var sortedCategorieKeys: [String]? = nil
+    var chosenLocations: [Place]? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initCategories()
+        self.chosenLocations = nil
         self.title = "liste_categories".localized
         
         let settings: UIButton = UIButton(frame: CGRectMake(0, 0, 50, 50))
@@ -49,12 +51,30 @@ class AroundMeController: UITableViewController {
         if let categorieKeys = self.sortedCategorieKeys, userLoc = self.userLocation{
             PlacesHelper.getCategories(categorieKeys[indexPath.item], userLocation: userLoc, categories: self.categories, actionOnComplete: {(places) in
                 print("NOMBRE DE PLACES \(places.count)")
+                self.chosenLocations = places
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.performSegueWithIdentifier("locationsSegue", sender: self)
+                })
             })
         }else{
             print("REQUIRED PARAMETER MISSING")
         }
-        
-        performSegueWithIdentifier("locationsSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "locationsSegue"){
+            if let locations = self.chosenLocations{
+                let svc = segue.destinationViewController as! LocationsController
+                svc.locations = locations
+            }
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if(identifier == "locationsSegue" && chosenLocations == nil){
+            return false;
+        }
+        return true;
     }
     
     private func initCategories() {
