@@ -63,9 +63,10 @@ class AroundMeController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "locationsSegue"){
-            if let locations = self.chosenLocations{
+            if let locations = self.chosenLocations, userLoc = self.userLocation{
                 let svc = segue.destinationViewController as! LocationsController
                 svc.locations = locations
+                svc.userLocation = userLoc
             }
         }
     }

@@ -171,6 +171,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ySO-Ji-LQc" kind="show" identifier="homeSegue" id="kUL-GO-IAG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

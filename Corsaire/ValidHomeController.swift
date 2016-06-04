@@ -20,6 +20,7 @@ class ValidHomeController: UIViewController{
     var selectedPin:MKPlacemark? = nil
     var arrivalLocation: CLLocation? = nil
     var userLocation: CLLocation? = nil
+    var chosenLocation: Place? = nil
     let itineraryHelper: ItineraryHelper = ItineraryHelper()
 
     
@@ -60,6 +61,15 @@ class ValidHomeController: UIViewController{
         searchBarArrival.layer.borderColor = UIColor.blueColor().CGColor
         
         arrivalView.addSubview(searchBarArrival)
+        
+        if let choice = chosenLocation{
+            print("CHOSEN LOCATION")
+            self.mapView.addAnnotation(choice)
+            
+            //Fetch and draw itinerary
+            self.fetchAndDrawItinerary(CLLocation(latitude: choice.coordinate.latitude, longitude: choice.coordinate.longitude))
+
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -81,8 +91,8 @@ class ValidHomeController: UIViewController{
         return true
     }
     
-    func fetchAndDrawItinerary(){
-        if let departure = self.userLocation, arrival = self.arrivalLocation {
+    func fetchAndDrawItinerary(arrival: CLLocation){
+        if let departure = self.userLocation {
             itineraryHelper.getItinerary(departure.coordinate, arrival: arrival.coordinate, actionOnComplete:{(itinerary) in
                 //draw itinerary on map
                 var polylinePoints: [CLLocationCoordinate2D] = []
@@ -128,7 +138,7 @@ extension ValidHomeController: HandleMapSearchArrival {
         self.mapView.addAnnotation(annotation)
         
         //Fetch and draw itinerary
-        self.fetchAndDrawItinerary()
+        self.fetchAndDrawItinerary(placemark.location!)
     }
 }
 
