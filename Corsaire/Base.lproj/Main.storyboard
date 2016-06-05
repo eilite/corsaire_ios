@@ -47,6 +47,30 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vpu-NJ-76A">
                                 <rect key="frame" x="0.0" y="143" width="600" height="457"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-xe-zcA">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAW-Qp-Q6h">
+                                        <rect key="frame" x="544" y="5" width="36" height="30"/>
+                                        <state key="normal" image="go"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OI-LR-c4H">
+                                        <rect key="frame" x="279" y="9" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.44980840259999999" green="1" blue="0.37485131319999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0OI-LR-c4H" firstAttribute="centerX" secondItem="iyL-xe-zcA" secondAttribute="centerX" id="6nk-LL-iag"/>
+                                    <constraint firstItem="mAW-Qp-Q6h" firstAttribute="top" secondItem="iyL-xe-zcA" secondAttribute="top" constant="5" id="8Is-gl-baP"/>
+                                    <constraint firstAttribute="height" constant="40" id="8iA-US-s01"/>
+                                    <constraint firstItem="mAW-Qp-Q6h" firstAttribute="centerY" secondItem="0OI-LR-c4H" secondAttribute="centerY" id="Qd1-6P-iOa"/>
+                                    <constraint firstAttribute="trailing" secondItem="mAW-Qp-Q6h" secondAttribute="trailing" constant="20" id="SID-4y-dMH"/>
+                                    <constraint firstAttribute="bottom" secondItem="mAW-Qp-Q6h" secondAttribute="bottom" constant="5" id="zju-RC-Seg"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUK-qi-ale" userLabel="ArrivalView">
                                 <rect key="frame" x="5" y="69" width="590" height="34"/>
                                 <color key="backgroundColor" red="0.44980840259999999" green="1" blue="0.37485131319999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,8 +100,11 @@
                             <constraint firstItem="XUK-qi-ale" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leadingMargin" constant="-15" id="C6k-sW-uv4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XUK-qi-ale" secondAttribute="trailing" constant="-15" id="KCI-iN-QkZ"/>
                             <constraint firstItem="Vpu-NJ-76A" firstAttribute="bottom" secondItem="XRw-ou-3xc" secondAttribute="top" id="OmS-cg-rwk"/>
+                            <constraint firstAttribute="trailing" secondItem="iyL-xe-zcA" secondAttribute="trailing" id="Pgx-Jf-Fdf"/>
+                            <constraint firstItem="iyL-xe-zcA" firstAttribute="leading" secondItem="F2H-iJ-0QS" secondAttribute="leading" id="Wyw-RF-BhR"/>
                             <constraint firstItem="Vpu-NJ-76A" firstAttribute="top" secondItem="xQt-k5-s6C" secondAttribute="bottom" constant="5" id="Y3Z-1v-JHM"/>
                             <constraint firstItem="xQt-k5-s6C" firstAttribute="top" secondItem="XUK-qi-ale" secondAttribute="bottom" constant="5" id="Y8O-Fr-KF1"/>
+                            <constraint firstItem="XRw-ou-3xc" firstAttribute="top" secondItem="iyL-xe-zcA" secondAttribute="bottom" id="ghi-vd-Pkp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xQt-k5-s6C" secondAttribute="trailing" constant="-15" id="nEZ-wj-avi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vpu-NJ-76A" secondAttribute="trailing" constant="-20" id="pbG-7t-B5I"/>
                         </constraints>
@@ -86,6 +113,9 @@
                     <connections>
                         <outlet property="aroundMeButton" destination="xQt-k5-s6C" id="KE4-my-avc"/>
                         <outlet property="arrivalView" destination="XUK-qi-ale" id="60S-Kp-FEk"/>
+                        <outlet property="goButton" destination="mAW-Qp-Q6h" id="ybE-KX-hfF"/>
+                        <outlet property="goLabel" destination="0OI-LR-c4H" id="oHA-Jw-T0s"/>
+                        <outlet property="goView" destination="iyL-xe-zcA" id="l4q-Ik-sTC"/>
                         <outlet property="mapView" destination="Vpu-NJ-76A" id="xfZ-ae-KYI"/>
                         <outlet property="view" destination="F2H-iJ-0QS" id="Pxb-gH-L8E"/>
                     </connections>
@@ -137,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fye-Hi-9aJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="762"/>
+            <point key="canvasLocation" x="-678" y="843"/>
         </scene>
         <!--Locations Controller-->
         <scene sceneID="4Nk-fj-9Zm">
@@ -251,6 +281,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="go" width="36" height="36"/>
         <image name="ic_my_location_white_18pt" width="18" height="18"/>
     </resources>
 </document>

@@ -150,6 +150,7 @@
 				471D6DB31CE733A0008FE86A /* AppDelegate.swift */,
 				471D6DBF1CE733A0008FE86A /* Assets.xcassets */,
 				471D6DB51CE733A0008FE86A /* Corsaire.xcdatamodeld */,
+				476900811CEE70A300F57E2D /* Main.storyboard */,
 				471D6DF71CE74B24008FE86A /* Localizable.strings */,
 				476978661CE9E6FF002C177F /* Info.plist */,
 			);
@@ -177,7 +178,6 @@
 		471D6DE61CE73EC5008FE86A /* Blind */ = {
 			isa = PBXGroup;
 			children = (
-				476900811CEE70A300F57E2D /* Main.storyboard */,
 				471D6DE91CE73F3D008FE86A /* Home */,
 			);
 			name = Blind;

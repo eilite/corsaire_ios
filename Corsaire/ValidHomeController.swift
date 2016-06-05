@@ -15,6 +15,9 @@ class ValidHomeController: UIViewController{
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var aroundMeButton: UIButton!
     @IBOutlet weak var arrivalView: UIView!
+    @IBOutlet weak var goView: UIView!
+    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var goLabel: UILabel!
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
@@ -26,6 +29,7 @@ class ValidHomeController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        goView.hidden = true
         //navigation bar
         self.title = "Corsaire"
         let logo: UIButton = UIButton(frame: CGRectMake(0, 0, 51, 31))
@@ -68,6 +72,8 @@ class ValidHomeController: UIViewController{
             
             //Fetch and draw itinerary
             self.fetchAndDrawItinerary(CLLocation(latitude: choice.coordinate.latitude, longitude: choice.coordinate.longitude))
+            self.goView.hidden = false
+            self.goLabel.text = "\(choice.distance) m"
 
         }
     }
@@ -106,6 +112,7 @@ class ValidHomeController: UIViewController{
                 dispatch_async(dispatch_get_main_queue(), {
                     let polyline = MKPolyline(coordinates: &polylinePoints, count: polylinePoints.count)
                     self.mapView.addOverlay(polyline, level: .AboveLabels)
+                    //TODO : zoon on itinerary
                 })
                 
             })
@@ -139,6 +146,12 @@ extension ValidHomeController: HandleMapSearchArrival {
         
         //Fetch and draw itinerary
         self.fetchAndDrawItinerary(placemark.location!)
+        
+        self.goView.hidden = false
+        if let userLoc = self.userLocation{
+        self.goLabel.text = "\(Int(userLoc.distanceFromLocation(CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)))) m"
+        }
+        
     }
 }
 
