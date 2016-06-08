@@ -18,6 +18,7 @@
 		471D6DFC1CE7B85A008FE86A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFB1CE7B85A008FE86A /* Extensions.swift */; };
 		471D6DFE1CE7B8A5008FE86A /* ItineraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */; };
 		471D6E021CE7C427008FE86A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D6E011CE7C427008FE86A /* HttpRequest.swift */; };
+		472C5F351D08B7D600FA6DAD /* ValidNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472C5F341D08B7D600FA6DAD /* ValidNavigationController.swift */; };
 		47326D1D1CF083B100FA63EC /* LocationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47326D1C1CF083B100FA63EC /* LocationsController.swift */; };
 		4751B0941CF0864100F04280 /* PlacesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751B0931CF0864100F04280 /* PlacesHelper.swift */; };
 		4751B0961CF092BA00F04280 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751B0951CF092BA00F04280 /* Place.swift */; };
@@ -73,6 +74,7 @@
 		471D6DFB1CE7B85A008FE86A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		471D6DFD1CE7B8A5008FE86A /* ItineraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryHelper.swift; sourceTree = "<group>"; };
 		471D6E011CE7C427008FE86A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		472C5F341D08B7D600FA6DAD /* ValidNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidNavigationController.swift; sourceTree = "<group>"; };
 		47326D1C1CF083B100FA63EC /* LocationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsController.swift; sourceTree = "<group>"; };
 		4751B0931CF0864100F04280 /* PlacesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesHelper.swift; sourceTree = "<group>"; };
 		4751B0951CF092BA00F04280 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		471D6DE71CE73ECD008FE86A /* Valid */ = {
 			isa = PBXGroup;
 			children = (
+				472C5F331D08B7C400FA6DAD /* Navigation */,
 				478140F21CEE5033001943B2 /* AroundMe */,
 				471D6DEC1CE74039008FE86A /* Home */,
 			);
@@ -229,6 +232,14 @@
 				4751B0931CF0864100F04280 /* PlacesHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		472C5F331D08B7C400FA6DAD /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				472C5F341D08B7D600FA6DAD /* ValidNavigationController.swift */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		478140F21CEE5033001943B2 /* AroundMe */ = {
@@ -394,6 +405,7 @@
 				476978691CE9F2F3002C177F /* Colors.swift in Sources */,
 				47326D1D1CF083B100FA63EC /* LocationsController.swift in Sources */,
 				47D56F2B1CE92D1D0056D01B /* LocationSearchTableArrival.swift in Sources */,
+				472C5F351D08B7D600FA6DAD /* ValidNavigationController.swift in Sources */,
 				47BA94921CE8D753006EA46C /* WalkingStep.swift in Sources */,
 				471D6DB41CE733A0008FE86A /* AppDelegate.swift in Sources */,
 				471D6DEE1CE74046008FE86A /* ValidHomeController.swift in Sources */,
